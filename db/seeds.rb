@@ -17,11 +17,6 @@ Product.create!([{
                    inventory_count: 219
                  },
                  {
-                     title: "Hawkeye's Exploding Arrows",
-                     price: 19.99,
-                     inventory_count: 181
-                 },
-                 {
                      title: "Iron Man's Suit",
                      price: 9999.99,
                      inventory_count: 2

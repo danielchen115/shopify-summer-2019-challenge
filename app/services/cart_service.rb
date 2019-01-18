@@ -20,7 +20,7 @@ module CartService
       else
         CartProduct.create(cart: cart, product: product, quantity: quantity)
       end
-      cart.increment(:total_amount, (quantity * product.price.to_d))
+      cart.increment(:total_amount, quantity * product.price.to_d)
       cart.save
       return cart
     end
@@ -36,7 +36,7 @@ module CartService
         if quantity > cart_product.quantity.to_i
           quantity = cart_product.quantity.to_i
         end
-        cart.decrement(:total_amount, (quantity * product.price.to_d))
+        cart.decrement(:total_amount, quantity * product.price.to_d)
         cart.save
         cart_product.decrement(:quantity, quantity)
         if cart_product.quantity.to_i == 0
@@ -55,8 +55,12 @@ module CartService
       end
       invalid_products = []
       for product in cart.products
-        if product.inventory_count.to_i < cart.cart_products.where(product_id: product.id).first.quantity.to_i
+        quantity = cart.cart_products.where(product_id: product.id).first.quantity.to_i
+        if product.inventory_count.to_i < quantity
           invalid_products << product.title
+        else
+          product.decrement(:inventory_count, quantity)
+          product.save
         end
       end
       if invalid_products.any?
