@@ -6,10 +6,5 @@ module ProductService
       end
       Product.all
     end
-
-    def add_to_cart(product, user)
-      cart = CartService.get_cart(user)
-      product.add(cart)
-    end
   end
 end
