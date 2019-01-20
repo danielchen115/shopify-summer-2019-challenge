@@ -66,4 +66,4 @@ rails db:migrate
 ```
 Visit http://localhost:3000 on a web browser. You should see the Rails default landing page.
 
-__Documentation and thought processcan be found [here](https://docs.google.com/document/d/1t_QGlkkPXH9zYwPVJik_UMXSU6BZ3LMLbU_dQ2_SkcI/edit?usp=sharing).__
+__Documentation and thought process can be found [here](https://docs.google.com/document/d/1t_QGlkkPXH9zYwPVJik_UMXSU6BZ3LMLbU_dQ2_SkcI/edit?usp=sharing).__
