@@ -6,7 +6,7 @@ class CartSerializer < ActiveModel::Serializer
       {
           id: product.id,
           title: product.title,
-          price: product.title,
+          price: product.price,
           quantity: CartProduct.where(cart_id: self.object.id, product_id: product.id).first.quantity
       }
     end

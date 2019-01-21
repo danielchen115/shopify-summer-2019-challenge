@@ -8,7 +8,8 @@ module CartService
     end
 
     def add_to_cart(product, user, quantity)
-      if quantity == nil
+      # If there was no quantity specified, assume 1.
+      if quantity == 0
         quantity = 1
       end
 
@@ -26,7 +27,8 @@ module CartService
     end
 
     def remove_from_cart(product, user, quantity)
-      if quantity == nil
+      # If there was no quantity specified, assume 1.
+    if quantity == 0
         quantity = 1
       end
 
